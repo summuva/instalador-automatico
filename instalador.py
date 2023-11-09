@@ -123,9 +123,11 @@ print("Instalación de pip completada.")
 
 # Instalar Paquetes 
 # Agregar los nombres de los paquetes a la lista de packages
-packages = ["ipykernel"]
+packages = ["ipykernel","venv"]
 for package in packages:
     try:
-        subprocess.run(["pip", "install", package])
+        paquete = f"python3-{package}"
+        subprocess.run(["sudo", "apt", "install",paquete])
     except Exception as e:
-        print(f"Error al instalar ipykernel: {str(e)}")
+        for i in range(10):
+            print(f"Error al instalar ipykernel: {str(e)}")
